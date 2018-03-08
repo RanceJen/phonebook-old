@@ -1,9 +1,9 @@
-#include <stdio.h>
+//#include <stdio.h> seens not use?
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+//#include <ctype.h> seens not use
 
-#include "phonebook_orig.h"
+#include "phonebook_opt.h"
 
 /* original version */
 entry *findName(char lastName[], entry *pHead)
