@@ -121,8 +121,7 @@ int main(int argc, char *argv[])
     do
     {
         free(hashTable[counter] -> pNext);
-        free(hashTable[counter] );
-        counter++;
+        free(hashTable[(counter++)] );
 
     }while(counter < MAX_TABLE_SIZE);
 #else
