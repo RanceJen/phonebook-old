@@ -5,13 +5,12 @@
 #include <assert.h>
 
 #include IMPL
-#define MAX_TABLE_SIZE 1024
+#define MAX_TABLE_SIZE 4096
 
 #if OPT == 1
 #define OUT_FILE "opt.txt"
 
 entry *hashTable[MAX_TABLE_SIZE] = {NULL};
-//entry *tableHead[MAX_TABLE_SIZE] = {NULL};
 #else
 #define OUT_FILE "orig.txt"
 #endif
@@ -36,15 +35,14 @@ unsigned int BKDRhash(char *cPtr)
     int hash = 0;
     int seed = 31; 
     do
-    {
-        hash = hash * seed + *cPtr;
-        cPtr++;
-    }while(*cPtr != '\0');
+        hash = hash * seed + (*cPtr++);
+    while(*cPtr != '\0');
     return (hash & (MAX_TABLE_SIZE -1)); //we learn from class
 }
 
 int main(int argc, char *argv[])
 {
+
     FILE *fp;
     //int i = 0;
     char line[MAX_LAST_NAME_SIZE];
